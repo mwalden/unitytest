@@ -6,7 +6,8 @@ public var jumpForce:Vector3;
 private var allowDoubleJump:boolean;
 private var isTouching:boolean;
 function Start () {
-
+	GameEventManager.gameStart.Add(onGameStart);
+	GameEventManager.gameEnd.Add(onGameOver);
 }
 function FixedUpdate():void{
 	if (isTouching){
@@ -31,4 +32,14 @@ function OnCollisionEnter (collision : Collision):void{
 
 function OnCollisionExit ():void{
 	isTouching = false;
+}
+
+function onGameStart():void{
+	gameObject.active=true;
+	this.distanceTraveled = 0;
+}
+
+function onGameOver():void{
+	gameObject.active = false;
+	
 }

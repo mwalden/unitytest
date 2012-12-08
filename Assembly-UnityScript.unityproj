@@ -44,6 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Managers\GameEventManager.js" />
+     <Compile Include="Assets\Managers\JSDelegate.js" />
      <Compile Include="Assets\Platform\PlatformManager.js" />
      <Compile Include="Assets\Runner\Runner.js" />
      <Compile Include="Assets\Skyline\SkylineManager.js" />
