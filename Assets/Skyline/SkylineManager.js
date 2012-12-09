@@ -16,17 +16,13 @@ function Start ():void {
 	var height:float = Random.Range(minSize.y,maxSize.y);
 	for (var i:int = 0;i<numOfObjects;i++){
 		var o:Transform = Instantiate(prefab);
-		//o.tag = x.ToString();
+		
 		array.push(o);
 	}
 	
 	for (var x:int = 0;x<numOfObjects;x++){
 		recycle();
 	}
-	
-	
-	
-	
 }
 
 function recycle():void{
@@ -49,6 +45,14 @@ function recycle():void{
 function Update ():void{
 	var o:Transform = array[0] as Transform;
 	if (o.localPosition.x + recycleOffset < Runner.distanceTraveled){
+		recycle();
+	}
+}
+
+
+function onGameStart():void{
+	nextPosition = transform.localPosition;
+	for(var i:int = 0; i < numOfObjects; i++){
 		recycle();
 	}
 }

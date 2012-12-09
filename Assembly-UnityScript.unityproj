@@ -44,6 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Boost\Boost.js" />
+     <Compile Include="Assets\Managers\GUIManager.js" />
      <Compile Include="Assets\Managers\GameEventManager.js" />
      <Compile Include="Assets\Managers\JSDelegate.js" />
      <Compile Include="Assets\Platform\PlatformManager.js" />

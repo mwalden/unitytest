@@ -7,9 +7,11 @@ class PlatformManager extends SkylineManager{
 	public var maxY:float;
 	public var physicMaterials: PhysicMaterial[];
 	public var materials: Material[];
+	public var boost:Boost;
 	
 	function Start () :void{
 		super.Start();
+		GameEventManager.gameStart.Add(onGameStart);
 	}
 	
 	function recycle():void{
@@ -23,20 +25,19 @@ class PlatformManager extends SkylineManager{
 		if (nextPosition.y > maxY){
 			nextPosition.y = minY + maxGap;
 		}
+		
 		var o:Transform = array.Pop() as Transform;
 		var idx:int = Random.Range(0,materials.Length);
 		var mat:Material = materials[idx] as Material;
 		var phyMat:PhysicMaterial = physicMaterials[idx] as PhysicMaterial;
+		boost.check(nextPosition);
 		o.renderer.material = mat;
 		o.collider.material = phyMat;
 		array.Push(o);
 		
 	}
 	
-	function Update ():void{
-		super.Update();
-		
-		
-	}
+	
+
 
 }

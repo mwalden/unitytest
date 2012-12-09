@@ -1,13 +1,8 @@
 #pragma strict
 public static class GameEventManager{
-	var gameStart:JSDelegate;
-	var gameEnd:JSDelegate;
+	var gameStart:JSDelegate = new JSDelegate();
+	var gameEnd:JSDelegate = new JSDelegate();
 	
-	//public var instance:EventManager;
-	public function Start():void{
-		gameStart = new JSDelegate();
-		gameEnd = new JSDelegate();
-	}
 	public function TriggerGameStart():void{
 		if(gameStart != null){
 			gameStart.Invoke();

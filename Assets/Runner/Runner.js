@@ -2,12 +2,18 @@
 public static var distanceTraveled:float; 
 public var acceleration:float;
 public var jumpForce:Vector3;
+public var gameOverDistance:float;
+
 
 private var allowDoubleJump:boolean;
 private var isTouching:boolean;
+private var startPosition:Vector3;
+
 function Start () {
 	GameEventManager.gameStart.Add(onGameStart);
 	GameEventManager.gameEnd.Add(onGameOver);
+	gameObject.active = false;
+	startPosition = transform.localPosition;
 }
 function FixedUpdate():void{
 	if (isTouching){
@@ -23,23 +29,31 @@ function Update ():void{
 	if (!isTouching && allowDoubleJump && Input.GetButtonDown("Jump")){
 		allowDoubleJump = false;
 	}
+	if (transform.localPosition.y <= gameOverDistance){
+		Debug.Log("calling game over");
+		GameEventManager.TriggerGameEnd();
+	}
 }
 function OnCollisionEnter (collision : Collision):void{
 	isTouching = true;
-	
 	allowDoubleJump = true;
+	Debug.Log("collided");
 }
 
 function OnCollisionExit ():void{
 	isTouching = false;
 }
 
-function onGameStart():void{
-	gameObject.active=true;
+function onGameStart():void{	
 	this.distanceTraveled = 0;
+	transform.localPosition = startPosition;
+	Debug.Log("starting runner");
+	enabled=true;
+	gameObject.active=true;
 }
 
 function onGameOver():void{
-	gameObject.active = false;
+	enabled=false;
+	gameObject.active=false;
 	
 }

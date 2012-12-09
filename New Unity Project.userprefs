@@ -1,14 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Managers/GameEventManager.js">
-    <Files>
-      <File FileName="Assets/Skyline/SkylineManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Platform/PlatformManager.js" Line="1" Column="1" />
-      <File FileName="Assets/Runner/Runner.js" Line="1" Column="1" />
-      <File FileName="Assets/Managers/GameEventManager.js" Line="11" Column="4" />
-      <File FileName="Assets/Managers/JSDelegate.js" Line="25" Column="2" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
