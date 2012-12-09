@@ -37,7 +37,7 @@ function Update ():void{
 function OnCollisionEnter (collision : Collision):void{
 	isTouching = true;
 	allowDoubleJump = true;
-	Debug.Log("collided");
+	//Debug.Log("collided");
 }
 
 function OnCollisionExit ():void{
